@@ -61,6 +61,33 @@ namespace AshirwadTraders.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Administrator.
+        /// </summary>
+        internal static string AdminPassword {
+            get {
+                return ResourceManager.GetString("AdminPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string LoginDefaultPassword {
+            get {
+                return ResourceManager.GetString("LoginDefaultPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Administrator.
+        /// </summary>
+        internal static string LoginUserName {
+            get {
+                return ResourceManager.GetString("LoginUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Setting {

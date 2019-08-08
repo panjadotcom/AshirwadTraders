@@ -144,6 +144,7 @@
             this.buttonChangePasswd.TabIndex = 1;
             this.buttonChangePasswd.Text = "CHANGE PASSWORD";
             this.buttonChangePasswd.UseVisualStyleBackColor = true;
+            this.buttonChangePasswd.Click += new System.EventHandler(this.ButtonChangePasswd_Clicked);
             // 
             // buttonLogin
             // 
@@ -156,6 +157,7 @@
             this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "LOGIN";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Clicked);
             // 
             // textBoxPassword
             // 
@@ -211,6 +213,7 @@
             this.MinimizeBox = false;
             this.Name = "LoginPage";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginPage_Load);
             this.splitContainerLogin.Panel1.ResumeLayout(false);
             this.splitContainerLogin.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLogin)).EndInit();
