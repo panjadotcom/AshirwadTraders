@@ -54,6 +54,12 @@
     <Compile Include="AccountsPage.Designer.cs">
       <DependentUpon>AccountsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="LedgerPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LedgerPage.Designer.cs">
+      <DependentUpon>LedgerPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,12 @@
     <Compile Include="MDIParent.Designer.cs">
       <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaymentPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentPage.Designer.cs">
+      <DependentUpon>PaymentPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionsPage.cs">
@@ -77,11 +89,17 @@
     <EmbeddedResource Include="AccountsPage.resx">
       <DependentUpon>AccountsPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LedgerPage.resx">
+      <DependentUpon>LedgerPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent.resx">
       <DependentUpon>MDIParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentPage.resx">
+      <DependentUpon>PaymentPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -31,6 +31,8 @@
             this.menuStripMDIParent = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ledgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMDIParent.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +40,9 @@
             // 
             this.menuStripMDIParent.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accountToolStripMenuItem,
-            this.transactionToolStripMenuItem});
+            this.transactionToolStripMenuItem,
+            this.paymentToolStripMenuItem,
+            this.ledgerToolStripMenuItem});
             this.menuStripMDIParent.Location = new System.Drawing.Point(0, 0);
             this.menuStripMDIParent.Name = "menuStripMDIParent";
             this.menuStripMDIParent.Size = new System.Drawing.Size(800, 24);
@@ -50,14 +54,28 @@
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "&Account";
-            this.accountToolStripMenuItem.Click += new System.EventHandler(this.AccountToolStripMenuItem_Click);
+            this.accountToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
             // 
             // transactionToolStripMenuItem
             // 
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
             this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.transactionToolStripMenuItem.Text = "&Transaction";
-            this.transactionToolStripMenuItem.Click += new System.EventHandler(this.TransactionToolStripMenuItem_clicked);
+            this.transactionToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
+            // paymentToolStripMenuItem
+            // 
+            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.paymentToolStripMenuItem.Text = "&Payment";
+            this.paymentToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
+            // ledgerToolStripMenuItem
+            // 
+            this.ledgerToolStripMenuItem.Name = "ledgerToolStripMenuItem";
+            this.ledgerToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.ledgerToolStripMenuItem.Text = "&Ledger";
+            this.ledgerToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
             // 
             // MDIParent
             // 
@@ -81,5 +99,7 @@
         private System.Windows.Forms.MenuStrip menuStripMDIParent;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ledgerToolStripMenuItem;
     }
 }

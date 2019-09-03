@@ -26,20 +26,32 @@ namespace AshirwadTraders
             }
         }
 
-        private void AccountToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CommonToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
             Close_Opened_Forms();
-            formViewer = new AccountsPage();
-            formViewer.WindowState = FormWindowState.Maximized;
-            formViewer.MdiParent = this;
-            formViewer.ControlBox = false;
-            formViewer.Show();
-        }
+            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
+            if (menuItem == accountToolStripMenuItem)
+            {
+                formViewer = new AccountsPage();
+            }
+            else if (menuItem == transactionToolStripMenuItem)
+            {
+                formViewer = new TransactionsPage();
+            }
+            else if (menuItem == paymentToolStripMenuItem)
+            {
+                formViewer = new PaymentPage();
+            }
+            else if (menuItem == ledgerToolStripMenuItem)
+            {
+                formViewer = new LedgerPage();
+            }
+            else
+            {
+                MessageBox.Show("Error in Menu Items", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-        private void TransactionToolStripMenuItem_clicked(object sender, EventArgs e)
-        {
-            Close_Opened_Forms();
-            formViewer = new TransactionsPage();
             formViewer.WindowState = FormWindowState.Maximized;
             formViewer.MdiParent = this;
             formViewer.ControlBox = false;
