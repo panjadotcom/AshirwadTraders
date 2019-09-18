@@ -34,5 +34,30 @@ namespace AshirwadTraders.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=10.0.2.2;port=3306;user id=pky;password=pky123;database=ashirwadtradersltd" +
+            ";SslMode=none")]
+        public string MySqlConStr {
+            get {
+                return ((string)(this["MySqlConStr"]));
+            }
+            set {
+                this["MySqlConStr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Path not selected")]
+        public string MySqlWorkingDirectory {
+            get {
+                return ((string)(this["MySqlWorkingDirectory"]));
+            }
+            set {
+                this["MySqlWorkingDirectory"] = value;
+            }
+        }
     }
 }

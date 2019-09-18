@@ -40,7 +40,9 @@
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelAddInfo = new System.Windows.Forms.Label();
             this.buttonUpdate = new System.Windows.Forms.Button();
+            this.pictureBoxAccounts = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelAccounts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelAccounts
@@ -67,6 +69,7 @@
             this.tableLayoutPanelAccounts.Controls.Add(this.labelAddress, 5, 6);
             this.tableLayoutPanelAccounts.Controls.Add(this.labelAddInfo, 5, 8);
             this.tableLayoutPanelAccounts.Controls.Add(this.buttonUpdate, 5, 13);
+            this.tableLayoutPanelAccounts.Controls.Add(this.pictureBoxAccounts, 0, 0);
             this.tableLayoutPanelAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanelAccounts.Location = new System.Drawing.Point(0, 0);
@@ -98,7 +101,7 @@
             this.textBoxName.Location = new System.Drawing.Point(398, 93);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(399, 26);
-            this.textBoxName.TabIndex = 0;
+            this.textBoxName.TabIndex = 1;
             // 
             // textBoxPhone
             // 
@@ -107,7 +110,7 @@
             this.textBoxPhone.Location = new System.Drawing.Point(398, 153);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(399, 26);
-            this.textBoxPhone.TabIndex = 1;
+            this.textBoxPhone.TabIndex = 2;
             // 
             // textBoxAddress
             // 
@@ -116,7 +119,7 @@
             this.textBoxAddress.Location = new System.Drawing.Point(398, 213);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(399, 26);
-            this.textBoxAddress.TabIndex = 2;
+            this.textBoxAddress.TabIndex = 3;
             // 
             // textBoxAdditionalInfo
             // 
@@ -127,17 +130,20 @@
             this.textBoxAdditionalInfo.Name = "textBoxAdditionalInfo";
             this.tableLayoutPanelAccounts.SetRowSpan(this.textBoxAdditionalInfo, 3);
             this.textBoxAdditionalInfo.Size = new System.Drawing.Size(399, 84);
-            this.textBoxAdditionalInfo.TabIndex = 3;
+            this.textBoxAdditionalInfo.TabIndex = 4;
             // 
             // comboBoxAccountNumber
             // 
+            this.comboBoxAccountNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxAccountNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanelAccounts.SetColumnSpan(this.comboBoxAccountNumber, 5);
             this.comboBoxAccountNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxAccountNumber.FormattingEnabled = true;
             this.comboBoxAccountNumber.Location = new System.Drawing.Point(398, 33);
             this.comboBoxAccountNumber.Name = "comboBoxAccountNumber";
             this.comboBoxAccountNumber.Size = new System.Drawing.Size(399, 28);
-            this.comboBoxAccountNumber.TabIndex = 4;
+            this.comboBoxAccountNumber.TabIndex = 0;
+            this.comboBoxAccountNumber.SelectedIndexChanged += new System.EventHandler(this.ComboBoxAccountNumber_SelectedIndexChanged);
             // 
             // labelAccNo
             // 
@@ -147,7 +153,7 @@
             this.labelAccNo.Location = new System.Drawing.Point(398, 0);
             this.labelAccNo.Name = "labelAccNo";
             this.labelAccNo.Size = new System.Drawing.Size(231, 30);
-            this.labelAccNo.TabIndex = 5;
+            this.labelAccNo.TabIndex = 6;
             this.labelAccNo.Text = "Account No";
             this.labelAccNo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -159,7 +165,7 @@
             this.labelName.Location = new System.Drawing.Point(398, 60);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(231, 30);
-            this.labelName.TabIndex = 6;
+            this.labelName.TabIndex = 7;
             this.labelName.Text = "Name";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -171,7 +177,7 @@
             this.labelPhone.Location = new System.Drawing.Point(398, 120);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(231, 30);
-            this.labelPhone.TabIndex = 7;
+            this.labelPhone.TabIndex = 8;
             this.labelPhone.Text = "Phone";
             this.labelPhone.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -183,7 +189,7 @@
             this.labelAddress.Location = new System.Drawing.Point(398, 180);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(231, 30);
-            this.labelAddress.TabIndex = 8;
+            this.labelAddress.TabIndex = 9;
             this.labelAddress.Text = "Address";
             this.labelAddress.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -195,7 +201,7 @@
             this.labelAddInfo.Location = new System.Drawing.Point(398, 240);
             this.labelAddInfo.Name = "labelAddInfo";
             this.labelAddInfo.Size = new System.Drawing.Size(231, 30);
-            this.labelAddInfo.TabIndex = 9;
+            this.labelAddInfo.TabIndex = 10;
             this.labelAddInfo.Text = "Additional Info";
             this.labelAddInfo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -207,9 +213,23 @@
             this.buttonUpdate.Name = "buttonUpdate";
             this.tableLayoutPanelAccounts.SetRowSpan(this.buttonUpdate, 2);
             this.buttonUpdate.Size = new System.Drawing.Size(399, 54);
-            this.buttonUpdate.TabIndex = 10;
+            this.buttonUpdate.TabIndex = 5;
             this.buttonUpdate.Text = "UPDATE";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
+            // 
+            // pictureBoxAccounts
+            // 
+            this.tableLayoutPanelAccounts.SetColumnSpan(this.pictureBoxAccounts, 5);
+            this.pictureBoxAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxAccounts.Image = global::AshirwadTraders.Properties.Resources.Setting;
+            this.pictureBoxAccounts.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxAccounts.Name = "pictureBoxAccounts";
+            this.tableLayoutPanelAccounts.SetRowSpan(this.pictureBoxAccounts, 15);
+            this.pictureBoxAccounts.Size = new System.Drawing.Size(389, 444);
+            this.pictureBoxAccounts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAccounts.TabIndex = 11;
+            this.pictureBoxAccounts.TabStop = false;
             // 
             // AccountsPage
             // 
@@ -219,8 +239,10 @@
             this.Controls.Add(this.tableLayoutPanelAccounts);
             this.Name = "AccountsPage";
             this.Text = "Accounts";
+            this.Load += new System.EventHandler(this.AccountsPage_Load);
             this.tableLayoutPanelAccounts.ResumeLayout(false);
             this.tableLayoutPanelAccounts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAccounts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,5 +261,6 @@
         private System.Windows.Forms.Label labelAddress;
         private System.Windows.Forms.Label labelAddInfo;
         private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.PictureBox pictureBoxAccounts;
     }
 }

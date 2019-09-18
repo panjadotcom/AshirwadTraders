@@ -5,5 +5,11 @@
     <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)">Password</Value>
     </Setting>
+    <Setting Name="MySqlConStr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">server=10.0.2.2;port=3306;user id=pky;password=pky123;database=ashirwadtradersltd;SslMode=none</Value>
+    </Setting>
+    <Setting Name="MySqlWorkingDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path not selected</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

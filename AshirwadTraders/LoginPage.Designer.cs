@@ -132,6 +132,7 @@
             this.buttonSetting.Size = new System.Drawing.Size(98, 57);
             this.buttonSetting.TabIndex = 0;
             this.buttonSetting.UseVisualStyleBackColor = false;
+            this.buttonSetting.Click += new System.EventHandler(this.SettingButton_Clicked);
             // 
             // buttonChangePasswd
             // 
@@ -169,6 +170,7 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(322, 21);
             this.textBoxPassword.TabIndex = 3;
+            this.textBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPassword_KeyPressed);
             // 
             // textBoxUsername
             // 

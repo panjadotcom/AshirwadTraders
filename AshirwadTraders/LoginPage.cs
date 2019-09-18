@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace AshirwadTraders
 {
@@ -30,11 +31,28 @@ namespace AshirwadTraders
         {
             if (String.Equals(textBoxPassword.Text, Properties.Settings.Default.Password))
             {
-                MDIParent mDIParent = new MDIParent();
-                textBoxPassword.Text = "";
-                Hide();
-                mDIParent.ShowDialog();
-                Close();
+                MySqlConnection mySqlConnection = new MySqlConnection(Properties.Settings.Default.MySqlConStr);
+                try
+                {
+                    mySqlConnection.Open();
+                    try
+                    {
+                        mySqlConnection.Close();
+                        MDIParent mDIParent = new MDIParent();
+                        textBoxPassword.Text = "";
+                        Hide();
+                        mDIParent.ShowDialog();
+                        Close();
+                    }
+                    catch (Exception errclose)
+                    {
+                        MessageBox.Show("connection cannot be closed because " + errclose.Message + "", "Error in Closing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception erropen)
+                {
+                    MessageBox.Show("connection cannot be opened because " + erropen.Message + "", "Error in opening", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -93,6 +111,22 @@ namespace AshirwadTraders
                 }
                 MessageBox.Show("Password does not match.\nPlease type login password in above field.\nIf forget the login password, then follow the instruction provided by the developer", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxPassword.Text = "";
+            }
+        }
+
+        private void SettingButton_Clicked(object sender, EventArgs e)
+        {
+            SettingsPage settingsPage = new SettingsPage();
+            Hide();
+            settingsPage.ShowDialog();
+            Show();
+        }
+
+        private void TextBoxPassword_KeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                ButtonLogin_Clicked(null, null);
             }
         }
     }
