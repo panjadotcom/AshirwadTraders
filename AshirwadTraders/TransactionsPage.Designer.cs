@@ -67,16 +67,16 @@
             this.tableLayoutPanelTransactions.Controls.Add(this.textBoxAccInfo, 3, 0);
             this.tableLayoutPanelTransactions.Controls.Add(this.comboBoxAccountId, 0, 1);
             this.tableLayoutPanelTransactions.Controls.Add(this.labelAccount, 0, 0);
-            this.tableLayoutPanelTransactions.Controls.Add(this.textBoxRate, 4, 3);
-            this.tableLayoutPanelTransactions.Controls.Add(this.textBoxQty, 6, 3);
+            this.tableLayoutPanelTransactions.Controls.Add(this.textBoxRate, 6, 3);
+            this.tableLayoutPanelTransactions.Controls.Add(this.textBoxQty, 4, 3);
             this.tableLayoutPanelTransactions.Controls.Add(this.textBoxTotal, 8, 3);
             this.tableLayoutPanelTransactions.Controls.Add(this.labelTotal, 8, 2);
-            this.tableLayoutPanelTransactions.Controls.Add(this.labelQty, 6, 2);
-            this.tableLayoutPanelTransactions.Controls.Add(this.labelRate, 4, 2);
-            this.tableLayoutPanelTransactions.Controls.Add(this.labelItems, 0, 2);
-            this.tableLayoutPanelTransactions.Controls.Add(this.labelDate, 2, 2);
-            this.tableLayoutPanelTransactions.Controls.Add(this.dateTimePickerTransaction, 2, 3);
-            this.tableLayoutPanelTransactions.Controls.Add(this.comboBoxItems, 0, 3);
+            this.tableLayoutPanelTransactions.Controls.Add(this.labelQty, 4, 2);
+            this.tableLayoutPanelTransactions.Controls.Add(this.labelRate, 6, 2);
+            this.tableLayoutPanelTransactions.Controls.Add(this.labelItems, 2, 2);
+            this.tableLayoutPanelTransactions.Controls.Add(this.labelDate, 0, 2);
+            this.tableLayoutPanelTransactions.Controls.Add(this.dateTimePickerTransaction, 0, 3);
+            this.tableLayoutPanelTransactions.Controls.Add(this.comboBoxItems, 2, 3);
             this.tableLayoutPanelTransactions.Controls.Add(this.buttonUpdate, 8, 9);
             this.tableLayoutPanelTransactions.Controls.Add(this.buttonReset, 2, 9);
             this.tableLayoutPanelTransactions.Controls.Add(this.dataGridViewTransaction, 0, 4);
@@ -95,6 +95,7 @@
             this.tableLayoutPanelTransactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelTransactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelTransactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelTransactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelTransactions.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanelTransactions.TabIndex = 0;
             // 
@@ -105,31 +106,36 @@
             this.buttonDelete.Location = new System.Drawing.Point(403, 408);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(154, 39);
-            this.buttonDelete.TabIndex = 15;
+            this.buttonDelete.TabIndex = 8;
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Clicked);
             // 
             // textBoxAccInfo
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxAccInfo, 7);
             this.textBoxAccInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxAccInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAccInfo.Location = new System.Drawing.Point(243, 3);
             this.textBoxAccInfo.Multiline = true;
             this.textBoxAccInfo.Name = "textBoxAccInfo";
             this.textBoxAccInfo.ReadOnly = true;
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxAccInfo, 2);
             this.textBoxAccInfo.Size = new System.Drawing.Size(554, 84);
-            this.textBoxAccInfo.TabIndex = 0;
+            this.textBoxAccInfo.TabIndex = 9;
             // 
             // comboBoxAccountId
             // 
+            this.comboBoxAccountId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxAccountId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.comboBoxAccountId, 3);
             this.comboBoxAccountId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxAccountId.FormattingEnabled = true;
             this.comboBoxAccountId.Location = new System.Drawing.Point(3, 48);
             this.comboBoxAccountId.Name = "comboBoxAccountId";
             this.comboBoxAccountId.Size = new System.Drawing.Size(234, 28);
-            this.comboBoxAccountId.TabIndex = 1;
+            this.comboBoxAccountId.TabIndex = 0;
+            this.comboBoxAccountId.SelectedIndexChanged += new System.EventHandler(this.ComboBoxAccountId_SelectedIndexChanged);
             // 
             // labelAccount
             // 
@@ -139,7 +145,7 @@
             this.labelAccount.Location = new System.Drawing.Point(3, 0);
             this.labelAccount.Name = "labelAccount";
             this.labelAccount.Size = new System.Drawing.Size(234, 45);
-            this.labelAccount.TabIndex = 2;
+            this.labelAccount.TabIndex = 10;
             this.labelAccount.Text = "Account";
             this.labelAccount.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -147,19 +153,21 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxRate, 2);
             this.textBoxRate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxRate.Location = new System.Drawing.Point(323, 138);
+            this.textBoxRate.Location = new System.Drawing.Point(483, 138);
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.Size = new System.Drawing.Size(154, 26);
-            this.textBoxRate.TabIndex = 3;
+            this.textBoxRate.TabIndex = 4;
+            this.textBoxRate.TextChanged += new System.EventHandler(this.RateQty_TextChanged);
             // 
             // textBoxQty
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxQty, 2);
             this.textBoxQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxQty.Location = new System.Drawing.Point(483, 138);
+            this.textBoxQty.Location = new System.Drawing.Point(323, 138);
             this.textBoxQty.Name = "textBoxQty";
             this.textBoxQty.Size = new System.Drawing.Size(154, 26);
-            this.textBoxQty.TabIndex = 4;
+            this.textBoxQty.TabIndex = 3;
+            this.textBoxQty.TextChanged += new System.EventHandler(this.RateQty_TextChanged);
             // 
             // textBoxTotal
             // 
@@ -167,6 +175,7 @@
             this.textBoxTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxTotal.Location = new System.Drawing.Point(643, 138);
             this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(154, 26);
             this.textBoxTotal.TabIndex = 5;
             // 
@@ -178,7 +187,7 @@
             this.labelTotal.Location = new System.Drawing.Point(643, 90);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(154, 45);
-            this.labelTotal.TabIndex = 6;
+            this.labelTotal.TabIndex = 15;
             this.labelTotal.Text = "Total";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -187,10 +196,10 @@
             this.labelQty.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelQty, 2);
             this.labelQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelQty.Location = new System.Drawing.Point(483, 90);
+            this.labelQty.Location = new System.Drawing.Point(323, 90);
             this.labelQty.Name = "labelQty";
             this.labelQty.Size = new System.Drawing.Size(154, 45);
-            this.labelQty.TabIndex = 7;
+            this.labelQty.TabIndex = 14;
             this.labelQty.Text = "Quantity";
             this.labelQty.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -199,10 +208,10 @@
             this.labelRate.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelRate, 2);
             this.labelRate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelRate.Location = new System.Drawing.Point(323, 90);
+            this.labelRate.Location = new System.Drawing.Point(483, 90);
             this.labelRate.Name = "labelRate";
             this.labelRate.Size = new System.Drawing.Size(154, 45);
-            this.labelRate.TabIndex = 8;
+            this.labelRate.TabIndex = 13;
             this.labelRate.Text = "Rate";
             this.labelRate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -211,10 +220,10 @@
             this.labelItems.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelItems, 2);
             this.labelItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelItems.Location = new System.Drawing.Point(3, 90);
+            this.labelItems.Location = new System.Drawing.Point(163, 90);
             this.labelItems.Name = "labelItems";
             this.labelItems.Size = new System.Drawing.Size(154, 45);
-            this.labelItems.TabIndex = 9;
+            this.labelItems.TabIndex = 11;
             this.labelItems.Text = "Item";
             this.labelItems.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -223,10 +232,10 @@
             this.labelDate.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelDate, 2);
             this.labelDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDate.Location = new System.Drawing.Point(163, 90);
+            this.labelDate.Location = new System.Drawing.Point(3, 90);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(154, 45);
-            this.labelDate.TabIndex = 10;
+            this.labelDate.TabIndex = 12;
             this.labelDate.Text = "Date";
             this.labelDate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -234,20 +243,22 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.dateTimePickerTransaction, 2);
             this.dateTimePickerTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePickerTransaction.Location = new System.Drawing.Point(163, 138);
+            this.dateTimePickerTransaction.Location = new System.Drawing.Point(3, 138);
             this.dateTimePickerTransaction.Name = "dateTimePickerTransaction";
             this.dateTimePickerTransaction.Size = new System.Drawing.Size(154, 26);
-            this.dateTimePickerTransaction.TabIndex = 11;
+            this.dateTimePickerTransaction.TabIndex = 1;
             // 
             // comboBoxItems
             // 
+            this.comboBoxItems.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxItems.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.comboBoxItems, 2);
             this.comboBoxItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxItems.FormattingEnabled = true;
-            this.comboBoxItems.Location = new System.Drawing.Point(3, 138);
+            this.comboBoxItems.Location = new System.Drawing.Point(163, 138);
             this.comboBoxItems.Name = "comboBoxItems";
             this.comboBoxItems.Size = new System.Drawing.Size(154, 28);
-            this.comboBoxItems.TabIndex = 12;
+            this.comboBoxItems.TabIndex = 2;
             // 
             // buttonUpdate
             // 
@@ -256,9 +267,10 @@
             this.buttonUpdate.Location = new System.Drawing.Point(643, 408);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(154, 39);
-            this.buttonUpdate.TabIndex = 13;
+            this.buttonUpdate.TabIndex = 6;
             this.buttonUpdate.Text = "UPDATE";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Clicked);
             // 
             // buttonReset
             // 
@@ -267,20 +279,26 @@
             this.buttonReset.Location = new System.Drawing.Point(163, 408);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(154, 39);
-            this.buttonReset.TabIndex = 14;
+            this.buttonReset.TabIndex = 7;
             this.buttonReset.Text = "RESET";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.ButtonReset_Clicked);
             // 
             // dataGridViewTransaction
             // 
+            this.dataGridViewTransaction.AllowUserToAddRows = false;
+            this.dataGridViewTransaction.AllowUserToDeleteRows = false;
             this.dataGridViewTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.dataGridViewTransaction, 10);
             this.dataGridViewTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTransaction.Location = new System.Drawing.Point(3, 183);
             this.dataGridViewTransaction.Name = "dataGridViewTransaction";
+            this.dataGridViewTransaction.RowHeadersVisible = false;
             this.tableLayoutPanelTransactions.SetRowSpan(this.dataGridViewTransaction, 5);
+            this.dataGridViewTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTransaction.Size = new System.Drawing.Size(794, 219);
             this.dataGridViewTransaction.TabIndex = 16;
+            this.dataGridViewTransaction.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTransaction_CellDoubleClick);
             // 
             // TransactionsPage
             // 
@@ -290,6 +308,7 @@
             this.Controls.Add(this.tableLayoutPanelTransactions);
             this.Name = "TransactionsPage";
             this.Text = "Transactions";
+            this.Load += new System.EventHandler(this.TransactionsPage_Load);
             this.tableLayoutPanelTransactions.ResumeLayout(false);
             this.tableLayoutPanelTransactions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransaction)).EndInit();
