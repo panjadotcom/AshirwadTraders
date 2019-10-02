@@ -38,10 +38,6 @@ namespace AshirwadTraders
             {
                 formViewer = new TransactionsPage();
             }
-            else if (menuItem == paymentToolStripMenuItem)
-            {
-                formViewer = new PaymentPage();
-            }
             else if (menuItem == ledgerToolStripMenuItem)
             {
                 formViewer = new LedgerPage();
