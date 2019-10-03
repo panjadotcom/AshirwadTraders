@@ -87,7 +87,7 @@ namespace AshirwadTraders
             {
                 queryString += "AND `pmt_date` >= '" + dateTimePickerStartDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND `pmt_date` <= '" + dateTimePickerEndDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' ";
             }
-            queryString += "ORDER BY `Date`";
+            queryString += "ORDER BY `Date` DESC";
 
             MySqlConnection mySqlConnection = new MySqlConnection(mySqlConStr);
             try
@@ -209,10 +209,10 @@ namespace AshirwadTraders
                 }
                 else
                 {
-                    textBoxBF.Text = amountBF.ToString();
-                    textBoxCF.Text = amountCF.ToString();
+                    textBoxBF.Text = String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("en-IN"), "{0:c2}", amountBF);
+                    textBoxCF.Text = String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("en-IN"), "{0:c2}", amountCF);
                 }
-                textBoxTotal.Text = amountTotal.ToString();
+                textBoxTotal.Text = String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("en-IN"), "{0:c2}", amountTotal);
             }
             catch (Exception errdataset)
             {

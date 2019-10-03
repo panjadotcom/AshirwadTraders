@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -123,8 +124,8 @@ namespace AshirwadTraders
             mySqlDataAdapter.Dispose();
             queryString = "SELECT `mtrl_id` as `Id`, `mtrl_date` as `Date`, `mtrl_item` as `Item`, `mtrl_unit` as `Unit` , `mtrl_rate` as `Rate`, `mtrl_qty` as `Qty`, `mtrl_extra` as `Extra` , `mtrl_total` as `Amount`  FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' " +
                 "union " +
-                "SELECT '------', current_date(), 'Total', '', '', '', '', SUM(`mtrl_total`) as `Amount` FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' " +
-                "ORDER BY `Date` ";
+                "SELECT '------', current_date(), 'TOTAL MATERIAL COST', '', '', '', '', SUM(`mtrl_total`) as `Amount` FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' " +
+                "ORDER BY `Date` DESC, `Id`";
             mySqlDataAdapter = new MySqlDataAdapter(queryString, mySqlConnection);
             try
             {
@@ -156,8 +157,8 @@ namespace AshirwadTraders
             mySqlDataAdapter.Dispose();
             queryString = "SELECT `pmt_id` as `Id`, `pmt_date` as `Date`, `pmt_info` as `Info`, `pmt_mode` as `Mode`, `pmt_amount` as `Amount` FROM `payments` WHERE `pmt_acc_number` = '" + comboBoxAccountId.Text + "' " +
                 "union " +
-                "SELECT '------', current_date(), 'Total', '', SUM(`pmt_amount`) as `Amount` FROM `payments` WHERE `pmt_acc_number` = '" + comboBoxAccountId.Text + "' " +
-                "ORDER BY `Date`";
+                "SELECT '------', current_date(), 'TOTAL PAYMENT', '', SUM(`pmt_amount`) as `Amount` FROM `payments` WHERE `pmt_acc_number` = '" + comboBoxAccountId.Text + "' " +
+                "ORDER BY `Date` DESC, `Id`";
             mySqlDataAdapter = new MySqlDataAdapter(queryString, mySqlConnection);
             try
             {
@@ -251,15 +252,16 @@ namespace AshirwadTraders
                     textBoxTotal.Text = dataGridView.SelectedRows[0].Cells["Amount"].Value.ToString();
                     textBoxExtra.Text = dataGridView.SelectedRows[0].Cells["Extra"].Value.ToString();
                     textBoxUnit.Text = dataGridView.SelectedRows[0].Cells["Unit"].Value.ToString();
-                    dataGridViewPayment.ClearSelection();
                 }
                 else if (dataGridView == dataGridViewPayment)
                 {
                     textBoxPmtId.Text = dataGridView.SelectedRows[0].Cells["Info"].Value.ToString();
                     comboBoxPmtMode.Text = dataGridView.SelectedRows[0].Cells["Mode"].Value.ToString();
                     textBoxAmount.Text = dataGridView.SelectedRows[0].Cells["Amount"].Value.ToString();
-                    dataGridViewMaterial.ClearSelection();
+                    TextBoxAmount_Leave(null, null);
                 }
+                dataGridViewPayment.ClearSelection();
+                dataGridViewMaterial.ClearSelection();
             }
             catch (Exception errSelectedIndex)
             {
@@ -304,7 +306,8 @@ namespace AshirwadTraders
                 }
             }
             total += extra;
-            textBoxTotal.Text = total.ToString();
+            textBoxTotal.Text = String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("en-IN"), "{0:c2}", total);
+            //textBoxTotal.Text = total.ToString();
         }
 
         private bool ValidateCommonData()
@@ -329,18 +332,28 @@ namespace AshirwadTraders
 
         private bool ValidatePaymentData()
         {
-            try
+            string totalAmt;
+            NumberStyles style;
+            CultureInfo culture;
+            decimal totalPrice;
+
+            // Parse currency value using en-IN culture.
+            totalAmt = textBoxAmount.Text;
+            style = NumberStyles.Number | NumberStyles.AllowCurrencySymbol;
+            culture = CultureInfo.CreateSpecificCulture("en-IN");
+            if (Decimal.TryParse(totalAmt, style, culture, out totalPrice))
             {
-                double total = Convert.ToDouble(textBoxTotal.Text);
-                if (total == 0)
+                Console.WriteLine("Converted '{0}' to {1}.", totalAmt, totalPrice);
+                if (totalPrice == 0)
                 {
                     MessageBox.Show("Total Price is Zero. No use of inserting");
                     return false;
                 }
             }
-            catch (Exception errPrice)
+            else
             {
-                MessageBox.Show("Incorrect Rate or Quantity (error = " + errPrice.Message + ")");
+                Console.WriteLine("Unable to convert '{0}'.", totalAmt);
+                MessageBox.Show("Incorrect amount '{" + totalAmt + "}'");
                 return false;
             }
 
@@ -360,24 +373,39 @@ namespace AshirwadTraders
 
         private bool ValidateMaterialData()
         {
-            if (comboBoxItems.Text.Equals(""))
-            {
-                MessageBox.Show("Item cannot be Empty", "Item incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            string totalAmt;
+            NumberStyles style;
+            CultureInfo culture;
+            decimal totalPrice;
 
-            if (comboBoxItems.Text.Equals("SELECT ITEM"))
+            // Parse currency value using en-IN culture.
+            totalAmt = textBoxTotal.Text;
+            style = NumberStyles.Number | NumberStyles.AllowCurrencySymbol;
+            culture = CultureInfo.CreateSpecificCulture("en-IN");
+            if (Decimal.TryParse(totalAmt, style, culture, out totalPrice))
             {
-                MessageBox.Show("Item not selected", "Item not selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Converted '{0}' to {1}.", totalAmt, totalPrice);
+                if (totalPrice == 0)
+                {
+                    MessageBox.Show("Total Price is Zero. No use of inserting");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unable to convert '{0}'.", totalAmt);
+                MessageBox.Show("Incorrect amount '{" + totalAmt + "}'");
                 return false;
             }
-            
             if (textBoxUnit.Text.Equals(""))
             {
                 MessageBox.Show("Item unit not provided.", "Unit not provided", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
+            if (textBoxExtra.Text.Equals(""))
+            {
+                textBoxExtra.Text = "0";
+            }
             return true;
         }
 
@@ -387,7 +415,7 @@ namespace AshirwadTraders
             {
                 return;
             }
-            if (comboBoxItems.SelectedIndex > 0)
+            if (!(comboBoxItems.Text.Equals("") || comboBoxItems.Text.Equals("SELECT ITEM")))
             {
                 if (!ValidateMaterialData())
                 {
@@ -410,7 +438,11 @@ namespace AshirwadTraders
             catch (Exception erropen)
             {
                 MessageBox.Show("connection cannot be opened because " + erropen.Message + "");
+                return;
             }
+            NumberStyles style = NumberStyles.Number | NumberStyles.AllowCurrencySymbol;
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-IN");
+            Double totalAmt;
             MySqlTransaction mySqlTransaction = mySqlConnection.BeginTransaction();
             MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.Connection = mySqlConnection;
@@ -428,7 +460,7 @@ namespace AshirwadTraders
             mySqlCommand.Parameters.AddWithValue("@var_mode", "Text");
             mySqlCommand.Parameters.AddWithValue("@var_amount", "Text");
             mySqlCommand.Parameters.AddWithValue("@var_info", "Text");
-            if (comboBoxItems.SelectedIndex > 0)
+            if (!(comboBoxItems.Text.Equals("") || comboBoxItems.Text.Equals("SELECT ITEM")))
             {
                 mySqlCommand.CommandText = "INSERT INTO `materials` (`mtrl_id`, `mtrl_acc_number`, `mtrl_date`, `mtrl_item`, `mtrl_unit`, `mtrl_rate`, `mtrl_qty`, `mtrl_total`, `mtrl_extra`)" +
                         " VALUES (@var_id, @var_acc_number, @var_date, @var_item, @var_unit, @var_rate, @var_qty, @var_total, @var_extra) ";
@@ -441,7 +473,8 @@ namespace AshirwadTraders
                 mySqlCommand.Parameters["@var_unit"].Value = textBoxUnit.Text;
                 mySqlCommand.Parameters["@var_rate"].Value = textBoxRate.Text;
                 mySqlCommand.Parameters["@var_qty"].Value = textBoxQty.Text;
-                mySqlCommand.Parameters["@var_total"].Value = textBoxTotal.Text;
+                Double.TryParse(textBoxTotal.Text, style, culture, out totalAmt);
+                mySqlCommand.Parameters["@var_total"].Value = totalAmt.ToString();
                 mySqlCommand.Parameters["@var_extra"].Value = textBoxExtra.Text;
                 try
                 {
@@ -463,7 +496,8 @@ namespace AshirwadTraders
                 mySqlCommand.Parameters["@var_acc_number"].Value = comboBoxAccountId.Text;
                 mySqlCommand.Parameters["@var_date"].Value = dateTimePickerTransaction.Value.ToString("yyyy-MM-dd") + " 00:00:00";
                 mySqlCommand.Parameters["@var_mode"].Value = comboBoxPmtMode.Text;
-                mySqlCommand.Parameters["@var_amount"].Value = textBoxAmount.Text;
+                Double.TryParse(textBoxAmount.Text, style, culture, out totalAmt);
+                mySqlCommand.Parameters["@var_amount"].Value = totalAmt.ToString();
                 mySqlCommand.Parameters["@var_info"].Value = textBoxPmtId.Text;
                 try
                 {
@@ -598,6 +632,29 @@ namespace AshirwadTraders
         private void ButtonReset_Clicked(object sender, EventArgs e)
         {
             comboBoxAccountId.SelectedIndex = 0;
+        }
+
+        private void TextBoxAmount_Leave(object sender, EventArgs e)
+        {
+            string totalAmt;
+            NumberStyles style;
+            CultureInfo culture;
+            decimal totalPrice;
+
+            // Parse currency value using en-IN culture.
+            totalAmt = textBoxAmount.Text;
+            style = NumberStyles.Number | NumberStyles.AllowCurrencySymbol;
+            culture = CultureInfo.CreateSpecificCulture("en-IN");
+            if (Decimal.TryParse(totalAmt, style, culture, out totalPrice))
+            {
+                Console.WriteLine("Converted '{0}' to {1}.", totalAmt, totalPrice);
+                textBoxAmount.Text = String.Format(culture, "{0:c2}", totalPrice);
+            }
+            else
+            {
+                MessageBox.Show("Amount value is not correct '{" + totalAmt + "}'.");
+            }
+            
         }
     }
 }

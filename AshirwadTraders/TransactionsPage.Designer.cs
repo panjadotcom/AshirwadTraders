@@ -83,7 +83,7 @@
             this.tableLayoutPanelTransactions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.tableLayoutPanelTransactions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.tableLayoutPanelTransactions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanelTransactions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelTransactions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanelTransactions.Controls.Add(this.textBoxUnit, 4, 7);
             this.tableLayoutPanelTransactions.Controls.Add(this.labelDataGridViewMaterials, 1, 13);
             this.tableLayoutPanelTransactions.Controls.Add(this.labelDataGridViewPayment, 1, 21);
@@ -156,7 +156,7 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxUnit, 3);
             this.textBoxUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxUnit.Location = new System.Drawing.Point(173, 101);
+            this.textBoxUnit.Location = new System.Drawing.Point(173, 108);
             this.textBoxUnit.Name = "textBoxUnit";
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxUnit, 2);
             this.textBoxUnit.Size = new System.Drawing.Size(144, 22);
@@ -167,9 +167,9 @@
             this.labelDataGridViewMaterials.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelDataGridViewMaterials, 4);
             this.labelDataGridViewMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDataGridViewMaterials.Location = new System.Drawing.Point(23, 182);
+            this.labelDataGridViewMaterials.Location = new System.Drawing.Point(23, 195);
             this.labelDataGridViewMaterials.Name = "labelDataGridViewMaterials";
-            this.labelDataGridViewMaterials.Size = new System.Drawing.Size(194, 14);
+            this.labelDataGridViewMaterials.Size = new System.Drawing.Size(194, 15);
             this.labelDataGridViewMaterials.TabIndex = 27;
             this.labelDataGridViewMaterials.Text = "Materials";
             this.labelDataGridViewMaterials.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -179,9 +179,9 @@
             this.labelDataGridViewPayment.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelDataGridViewPayment, 4);
             this.labelDataGridViewPayment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDataGridViewPayment.Location = new System.Drawing.Point(23, 294);
+            this.labelDataGridViewPayment.Location = new System.Drawing.Point(23, 315);
             this.labelDataGridViewPayment.Name = "labelDataGridViewPayment";
-            this.labelDataGridViewPayment.Size = new System.Drawing.Size(194, 14);
+            this.labelDataGridViewPayment.Size = new System.Drawing.Size(194, 15);
             this.labelDataGridViewPayment.TabIndex = 28;
             this.labelDataGridViewPayment.Text = "Payments";
             this.labelDataGridViewPayment.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -191,9 +191,9 @@
             this.labelPmtMode.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelPmtMode, 4);
             this.labelPmtMode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelPmtMode.Location = new System.Drawing.Point(323, 126);
+            this.labelPmtMode.Location = new System.Drawing.Point(323, 135);
             this.labelPmtMode.Name = "labelPmtMode";
-            this.labelPmtMode.Size = new System.Drawing.Size(194, 14);
+            this.labelPmtMode.Size = new System.Drawing.Size(194, 15);
             this.labelPmtMode.TabIndex = 25;
             this.labelPmtMode.Text = "PMT MODE";
             this.labelPmtMode.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -210,7 +210,7 @@
             "Cash",
             "Cheque",
             "Online"});
-            this.comboBoxPmtMode.Location = new System.Drawing.Point(323, 143);
+            this.comboBoxPmtMode.Location = new System.Drawing.Point(323, 153);
             this.comboBoxPmtMode.Name = "comboBoxPmtMode";
             this.tableLayoutPanelTransactions.SetRowSpan(this.comboBoxPmtMode, 2);
             this.comboBoxPmtMode.Size = new System.Drawing.Size(194, 24);
@@ -221,9 +221,9 @@
             this.labelUnit.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelUnit, 2);
             this.labelUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelUnit.Location = new System.Drawing.Point(173, 84);
+            this.labelUnit.Location = new System.Drawing.Point(173, 90);
             this.labelUnit.Name = "labelUnit";
-            this.labelUnit.Size = new System.Drawing.Size(94, 14);
+            this.labelUnit.Size = new System.Drawing.Size(94, 15);
             this.labelUnit.TabIndex = 19;
             this.labelUnit.Text = "Unit";
             this.labelUnit.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -232,7 +232,7 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxExtra, 2);
             this.textBoxExtra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExtra.Location = new System.Drawing.Point(573, 101);
+            this.textBoxExtra.Location = new System.Drawing.Point(573, 108);
             this.textBoxExtra.Name = "textBoxExtra";
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxExtra, 2);
             this.textBoxExtra.Size = new System.Drawing.Size(94, 22);
@@ -243,7 +243,7 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxPmtId, 3);
             this.textBoxPmtId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxPmtId.Location = new System.Drawing.Point(623, 143);
+            this.textBoxPmtId.Location = new System.Drawing.Point(623, 153);
             this.textBoxPmtId.Name = "textBoxPmtId";
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxPmtId, 2);
             this.textBoxPmtId.Size = new System.Drawing.Size(144, 22);
@@ -253,20 +253,21 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxAmount, 4);
             this.textBoxAmount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxAmount.Location = new System.Drawing.Point(23, 143);
+            this.textBoxAmount.Location = new System.Drawing.Point(23, 153);
             this.textBoxAmount.Name = "textBoxAmount";
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxAmount, 2);
             this.textBoxAmount.Size = new System.Drawing.Size(194, 22);
             this.textBoxAmount.TabIndex = 8;
+            this.textBoxAmount.Leave += new System.EventHandler(this.TextBoxAmount_Leave);
             // 
             // labelPaymentAmt
             // 
             this.labelPaymentAmt.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelPaymentAmt, 4);
             this.labelPaymentAmt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelPaymentAmt.Location = new System.Drawing.Point(23, 126);
+            this.labelPaymentAmt.Location = new System.Drawing.Point(23, 135);
             this.labelPaymentAmt.Name = "labelPaymentAmt";
-            this.labelPaymentAmt.Size = new System.Drawing.Size(194, 14);
+            this.labelPaymentAmt.Size = new System.Drawing.Size(194, 15);
             this.labelPaymentAmt.TabIndex = 24;
             this.labelPaymentAmt.Text = "Payment";
             this.labelPaymentAmt.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -276,9 +277,9 @@
             this.labelPmtId.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelPmtId, 3);
             this.labelPmtId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelPmtId.Location = new System.Drawing.Point(623, 126);
+            this.labelPmtId.Location = new System.Drawing.Point(623, 135);
             this.labelPmtId.Name = "labelPmtId";
-            this.labelPmtId.Size = new System.Drawing.Size(144, 14);
+            this.labelPmtId.Size = new System.Drawing.Size(144, 15);
             this.labelPmtId.TabIndex = 26;
             this.labelPmtId.Text = "PMT INFO";
             this.labelPmtId.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -288,9 +289,9 @@
             this.labelExtra.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelExtra, 2);
             this.labelExtra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelExtra.Location = new System.Drawing.Point(573, 84);
+            this.labelExtra.Location = new System.Drawing.Point(573, 90);
             this.labelExtra.Name = "labelExtra";
-            this.labelExtra.Size = new System.Drawing.Size(94, 14);
+            this.labelExtra.Size = new System.Drawing.Size(94, 15);
             this.labelExtra.TabIndex = 22;
             this.labelExtra.Text = "Extra";
             this.labelExtra.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -302,13 +303,13 @@
             this.dataGridViewPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.dataGridViewPayment, 15);
             this.dataGridViewPayment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPayment.Location = new System.Drawing.Point(23, 311);
+            this.dataGridViewPayment.Location = new System.Drawing.Point(23, 333);
             this.dataGridViewPayment.Name = "dataGridViewPayment";
             this.dataGridViewPayment.ReadOnly = true;
             this.dataGridViewPayment.RowHeadersVisible = false;
             this.tableLayoutPanelTransactions.SetRowSpan(this.dataGridViewPayment, 7);
             this.dataGridViewPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPayment.Size = new System.Drawing.Size(744, 92);
+            this.dataGridViewPayment.Size = new System.Drawing.Size(744, 99);
             this.dataGridViewPayment.TabIndex = 13;
             this.dataGridViewPayment.TabStop = false;
             this.dataGridViewPayment.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTransaction_CellDoubleClick);
@@ -317,9 +318,9 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.buttonDelete, 5);
             this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDelete.Location = new System.Drawing.Point(273, 409);
+            this.buttonDelete.Location = new System.Drawing.Point(273, 438);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(244, 38);
+            this.buttonDelete.Size = new System.Drawing.Size(244, 9);
             this.buttonDelete.TabIndex = 14;
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -335,7 +336,7 @@
             this.textBoxAccInfo.Name = "textBoxAccInfo";
             this.textBoxAccInfo.ReadOnly = true;
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxAccInfo, 6);
-            this.textBoxAccInfo.Size = new System.Drawing.Size(494, 78);
+            this.textBoxAccInfo.Size = new System.Drawing.Size(494, 84);
             this.textBoxAccInfo.TabIndex = 29;
             this.textBoxAccInfo.TabStop = false;
             // 
@@ -346,7 +347,7 @@
             this.tableLayoutPanelTransactions.SetColumnSpan(this.comboBoxAccountId, 5);
             this.comboBoxAccountId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxAccountId.FormattingEnabled = true;
-            this.comboBoxAccountId.Location = new System.Drawing.Point(23, 17);
+            this.comboBoxAccountId.Location = new System.Drawing.Point(23, 18);
             this.comboBoxAccountId.Name = "comboBoxAccountId";
             this.tableLayoutPanelTransactions.SetRowSpan(this.comboBoxAccountId, 2);
             this.comboBoxAccountId.Size = new System.Drawing.Size(244, 24);
@@ -360,7 +361,7 @@
             this.labelAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelAccount.Location = new System.Drawing.Point(23, 0);
             this.labelAccount.Name = "labelAccount";
-            this.labelAccount.Size = new System.Drawing.Size(244, 14);
+            this.labelAccount.Size = new System.Drawing.Size(244, 15);
             this.labelAccount.TabIndex = 16;
             this.labelAccount.Text = "Account";
             this.labelAccount.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -369,7 +370,7 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxRate, 3);
             this.textBoxRate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxRate.Location = new System.Drawing.Point(323, 101);
+            this.textBoxRate.Location = new System.Drawing.Point(323, 108);
             this.textBoxRate.Name = "textBoxRate";
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxRate, 2);
             this.textBoxRate.Size = new System.Drawing.Size(144, 22);
@@ -380,7 +381,7 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxQty, 2);
             this.textBoxQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxQty.Location = new System.Drawing.Point(473, 101);
+            this.textBoxQty.Location = new System.Drawing.Point(473, 108);
             this.textBoxQty.Name = "textBoxQty";
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxQty, 2);
             this.textBoxQty.Size = new System.Drawing.Size(94, 22);
@@ -391,7 +392,7 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.textBoxTotal, 2);
             this.textBoxTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxTotal.Location = new System.Drawing.Point(673, 101);
+            this.textBoxTotal.Location = new System.Drawing.Point(673, 108);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.tableLayoutPanelTransactions.SetRowSpan(this.textBoxTotal, 2);
@@ -403,9 +404,9 @@
             this.labelTotal.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelTotal, 2);
             this.labelTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelTotal.Location = new System.Drawing.Point(673, 84);
+            this.labelTotal.Location = new System.Drawing.Point(673, 90);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(94, 14);
+            this.labelTotal.Size = new System.Drawing.Size(94, 15);
             this.labelTotal.TabIndex = 23;
             this.labelTotal.Text = "Total";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -415,9 +416,9 @@
             this.labelQty.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelQty, 2);
             this.labelQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelQty.Location = new System.Drawing.Point(473, 84);
+            this.labelQty.Location = new System.Drawing.Point(473, 90);
             this.labelQty.Name = "labelQty";
-            this.labelQty.Size = new System.Drawing.Size(94, 14);
+            this.labelQty.Size = new System.Drawing.Size(94, 15);
             this.labelQty.TabIndex = 21;
             this.labelQty.Text = "Qty";
             this.labelQty.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -427,9 +428,9 @@
             this.labelRate.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelRate, 3);
             this.labelRate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelRate.Location = new System.Drawing.Point(323, 84);
+            this.labelRate.Location = new System.Drawing.Point(323, 90);
             this.labelRate.Name = "labelRate";
-            this.labelRate.Size = new System.Drawing.Size(144, 14);
+            this.labelRate.Size = new System.Drawing.Size(144, 15);
             this.labelRate.TabIndex = 20;
             this.labelRate.Text = "Rate";
             this.labelRate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -439,9 +440,9 @@
             this.labelItems.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelItems, 3);
             this.labelItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelItems.Location = new System.Drawing.Point(23, 84);
+            this.labelItems.Location = new System.Drawing.Point(23, 90);
             this.labelItems.Name = "labelItems";
-            this.labelItems.Size = new System.Drawing.Size(144, 14);
+            this.labelItems.Size = new System.Drawing.Size(144, 15);
             this.labelItems.TabIndex = 18;
             this.labelItems.Text = "Item";
             this.labelItems.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -451,9 +452,9 @@
             this.labelDate.AutoSize = true;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.labelDate, 3);
             this.labelDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDate.Location = new System.Drawing.Point(23, 42);
+            this.labelDate.Location = new System.Drawing.Point(23, 45);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(144, 14);
+            this.labelDate.Size = new System.Drawing.Size(144, 15);
             this.labelDate.TabIndex = 17;
             this.labelDate.Text = "Date";
             this.labelDate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -462,7 +463,7 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.dateTimePickerTransaction, 5);
             this.dateTimePickerTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePickerTransaction.Location = new System.Drawing.Point(23, 59);
+            this.dateTimePickerTransaction.Location = new System.Drawing.Point(23, 63);
             this.dateTimePickerTransaction.Name = "dateTimePickerTransaction";
             this.tableLayoutPanelTransactions.SetRowSpan(this.dateTimePickerTransaction, 2);
             this.dateTimePickerTransaction.Size = new System.Drawing.Size(244, 22);
@@ -475,7 +476,7 @@
             this.tableLayoutPanelTransactions.SetColumnSpan(this.comboBoxItems, 3);
             this.comboBoxItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxItems.FormattingEnabled = true;
-            this.comboBoxItems.Location = new System.Drawing.Point(23, 101);
+            this.comboBoxItems.Location = new System.Drawing.Point(23, 108);
             this.comboBoxItems.Name = "comboBoxItems";
             this.tableLayoutPanelTransactions.SetRowSpan(this.comboBoxItems, 2);
             this.comboBoxItems.Size = new System.Drawing.Size(144, 24);
@@ -485,9 +486,9 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.buttonUpdate, 5);
             this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonUpdate.Location = new System.Drawing.Point(523, 409);
+            this.buttonUpdate.Location = new System.Drawing.Point(523, 438);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(244, 38);
+            this.buttonUpdate.Size = new System.Drawing.Size(244, 9);
             this.buttonUpdate.TabIndex = 11;
             this.buttonUpdate.Text = "UPDATE";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -497,9 +498,9 @@
             // 
             this.tableLayoutPanelTransactions.SetColumnSpan(this.buttonReset, 5);
             this.buttonReset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonReset.Location = new System.Drawing.Point(23, 409);
+            this.buttonReset.Location = new System.Drawing.Point(23, 438);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(244, 38);
+            this.buttonReset.Size = new System.Drawing.Size(244, 9);
             this.buttonReset.TabIndex = 15;
             this.buttonReset.Text = "RESET";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -512,13 +513,13 @@
             this.dataGridViewMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanelTransactions.SetColumnSpan(this.dataGridViewMaterial, 15);
             this.dataGridViewMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMaterial.Location = new System.Drawing.Point(23, 199);
+            this.dataGridViewMaterial.Location = new System.Drawing.Point(23, 213);
             this.dataGridViewMaterial.Name = "dataGridViewMaterial";
             this.dataGridViewMaterial.ReadOnly = true;
             this.dataGridViewMaterial.RowHeadersVisible = false;
             this.tableLayoutPanelTransactions.SetRowSpan(this.dataGridViewMaterial, 7);
             this.dataGridViewMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMaterial.Size = new System.Drawing.Size(744, 92);
+            this.dataGridViewMaterial.Size = new System.Drawing.Size(744, 99);
             this.dataGridViewMaterial.TabIndex = 12;
             this.dataGridViewMaterial.TabStop = false;
             this.dataGridViewMaterial.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTransaction_CellDoubleClick);
