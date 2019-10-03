@@ -42,6 +42,10 @@ namespace AshirwadTraders
             {
                 formViewer = new LedgerPage();
             }
+            else if (menuItem == profitLossToolStripMenuItem)
+            {
+                formViewer = new ProfitLossPage();
+            }
             else
             {
                 MessageBox.Show("Error in Menu Items", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -88,6 +88,7 @@
             this.profitLossToolStripMenuItem.Name = "profitLossToolStripMenuItem";
             this.profitLossToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.profitLossToolStripMenuItem.Text = "Profit / Loss";
+            this.profitLossToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
             // 
             // materialsToolStripMenuItem
             // 
