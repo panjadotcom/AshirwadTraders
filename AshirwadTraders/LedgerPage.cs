@@ -76,13 +76,13 @@ namespace AshirwadTraders
                 return;
             }
             string queryString = "SELECT " +
-                "`mtrl_date` as `Date`, `mtrl_item` as `Particulars`, `mtrl_rate` as `Rate`, `mtrl_unit` as `Unit`, `mtrl_qty` as `Qty`, `mtrl_extra` as `Extra`, `mtrl_total` as `Credited`, '' as `Debited` FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' ";
+                "`mtrl_date` as `Date`, `mtrl_item` as `Particulars`, `mtrl_rate` as `Rate`, `mtrl_qty` as `Qty`, `mtrl_extra` as `Extra`, `mtrl_total` as `Total`, '' as `Payment` FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' ";
             if (!checkBoxSelectAll.Checked)
             {
                 queryString += "AND `mtrl_date` >= '" + dateTimePickerStartDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND `mtrl_date` <= '" + dateTimePickerEndDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' ";
             }
             queryString += "UNION SELECT " +
-                "`pmt_date` as `Date`, 'DEPOSITS' as `Particulars`, '' as `Rate`, `pmt_mode` as `Unit`, '' as `Qty`, '' as `Extra`, '' as `Credited`, `pmt_amount` as `Debited` FROM `payments` WHERE `pmt_acc_number` = '" + comboBoxAccountId.Text + "' ";
+                "`pmt_date` as `Date`, `pmt_mode` as `Particulars`, '' as `Rate`, '' as `Qty`, '' as `Extra`, '' as `Total`, `pmt_amount` as `Payment` FROM `payments` WHERE `pmt_acc_number` = '" + comboBoxAccountId.Text + "' ";
             if (!checkBoxSelectAll.Checked)
             {
                 queryString += "AND `pmt_date` >= '" + dateTimePickerStartDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND `pmt_date` <= '" + dateTimePickerEndDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' ";
@@ -116,16 +116,14 @@ namespace AshirwadTraders
                 dataGridViewTransaction.Columns["Particulars"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridViewTransaction.Columns["Rate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewTransaction.Columns["Rate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dataGridViewTransaction.Columns["Unit"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridViewTransaction.Columns["Unit"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dataGridViewTransaction.Columns["Extra"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewTransaction.Columns["Extra"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dataGridViewTransaction.Columns["Qty"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewTransaction.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dataGridViewTransaction.Columns["Credited"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridViewTransaction.Columns["Credited"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dataGridViewTransaction.Columns["Debited"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridViewTransaction.Columns["Debited"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dataGridViewTransaction.Columns["Total"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridViewTransaction.Columns["Total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dataGridViewTransaction.Columns["Payment"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridViewTransaction.Columns["Payment"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dataGridViewTransaction.ClearSelection();
             }
             catch (Exception errdataset)
@@ -234,13 +232,13 @@ namespace AshirwadTraders
             {
                 dateTimePickerEndDate.Enabled = false;
                 dateTimePickerStartDate.Enabled = false;
-                ComboBoxAccountId_SelectedIndexChanged(null, null);
             }
             else
             {
                 dateTimePickerEndDate.Enabled = true;
                 dateTimePickerStartDate.Enabled = true;
             }
+            ComboBoxAccountId_SelectedIndexChanged(null, null);
         }
 
         private void StartEnd_DateChanged(object sender, EventArgs e)

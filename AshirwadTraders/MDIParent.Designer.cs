@@ -35,7 +35,14 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profitLossToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleAllMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleByItemMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleByAccountMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockAvailableMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentByModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentByAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMDIParent.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,15 +99,73 @@
             // 
             // materialsToolStripMenuItem
             // 
+            this.materialsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saleAllMaterialToolStripMenuItem,
+            this.saleByItemMaterialToolStripMenuItem,
+            this.saleByAccountMaterialToolStripMenuItem,
+            this.stockAvailableMaterialToolStripMenuItem});
             this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
             this.materialsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.materialsToolStripMenuItem.Text = "Materials";
             // 
+            // saleAllMaterialToolStripMenuItem
+            // 
+            this.saleAllMaterialToolStripMenuItem.Name = "saleAllMaterialToolStripMenuItem";
+            this.saleAllMaterialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saleAllMaterialToolStripMenuItem.Text = "All Sales";
+            this.saleAllMaterialToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
+            // saleByItemMaterialToolStripMenuItem
+            // 
+            this.saleByItemMaterialToolStripMenuItem.Name = "saleByItemMaterialToolStripMenuItem";
+            this.saleByItemMaterialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saleByItemMaterialToolStripMenuItem.Text = "Sales By Item";
+            this.saleByItemMaterialToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
+            // saleByAccountMaterialToolStripMenuItem
+            // 
+            this.saleByAccountMaterialToolStripMenuItem.Name = "saleByAccountMaterialToolStripMenuItem";
+            this.saleByAccountMaterialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saleByAccountMaterialToolStripMenuItem.Text = "Sales By Account";
+            this.saleByAccountMaterialToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
+            // stockAvailableMaterialToolStripMenuItem
+            // 
+            this.stockAvailableMaterialToolStripMenuItem.Name = "stockAvailableMaterialToolStripMenuItem";
+            this.stockAvailableMaterialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stockAvailableMaterialToolStripMenuItem.Text = "Stock Available";
+            this.stockAvailableMaterialToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
             // paymentsToolStripMenuItem
             // 
+            this.paymentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allPaymentToolStripMenuItem,
+            this.paymentByModeToolStripMenuItem,
+            this.paymentByAccountToolStripMenuItem});
             this.paymentsToolStripMenuItem.Name = "paymentsToolStripMenuItem";
             this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.paymentsToolStripMenuItem.Text = "Payments";
+            // 
+            // allPaymentToolStripMenuItem
+            // 
+            this.allPaymentToolStripMenuItem.Name = "allPaymentToolStripMenuItem";
+            this.allPaymentToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.allPaymentToolStripMenuItem.Text = "All Payments";
+            this.allPaymentToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
+            // paymentByModeToolStripMenuItem
+            // 
+            this.paymentByModeToolStripMenuItem.Name = "paymentByModeToolStripMenuItem";
+            this.paymentByModeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.paymentByModeToolStripMenuItem.Text = "Payments By Mode";
+            this.paymentByModeToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
+            // 
+            // paymentByAccountToolStripMenuItem
+            // 
+            this.paymentByAccountToolStripMenuItem.Name = "paymentByAccountToolStripMenuItem";
+            this.paymentByAccountToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.paymentByAccountToolStripMenuItem.Text = "Payments By Account";
+            this.paymentByAccountToolStripMenuItem.Click += new System.EventHandler(this.CommonToolStripMenuItem_Clicked);
             // 
             // MDIParent
             // 
@@ -129,5 +194,12 @@
         private System.Windows.Forms.ToolStripMenuItem profitLossToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saleAllMaterialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saleByItemMaterialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saleByAccountMaterialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockAvailableMaterialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allPaymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paymentByModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paymentByAccountToolStripMenuItem;
     }
 }

@@ -11,17 +11,17 @@ using MySql.Data.MySqlClient;
 
 namespace AshirwadTraders
 {
-    public partial class ProfitLossPage : Form
+    public partial class ReportPage : Form
     {
         static string mySqlConStr = Properties.Settings.Default.MySqlConStr;
         static string optionsPassed;
-        public ProfitLossPage(string argumentPassed)
+        public ReportPage(string argumentPassed)
         {
             InitializeComponent();
             optionsPassed = "SELECT," + argumentPassed;
         }
 
-        private void ProfitLossPage_Load(object sender, EventArgs e)
+        private void ReportPage_Load(object sender, EventArgs e)
         {
             var options = optionsPassed.Split(", ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             dateTimePickerStartDate.MaxDate = DateTime.Today;
@@ -173,7 +173,7 @@ namespace AshirwadTraders
             queryString += "UNION SELECT " +
                 "'4' as `Index`, SUM(`pmt_amount`) as `Amount` FROM `payments` WHERE `pmt_acc_number` != (SELECT `acc_number` FROM `account` WHERE `acc_id` = 1) ";
             queryString += "AND `pmt_date` >= '" + dateTimePickerStartDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND `pmt_date` <= '" + dateTimePickerEndDate.Value.ToString("yyyy-MM-dd") + " 00:00:00' ";
-            
+
             queryString += "UNION SELECT " +
                 "'5' as `Index`, SUM(`mtrl_total`) as `Amount` FROM `materials` WHERE `mtrl_acc_number` = (SELECT `acc_number` FROM `account` WHERE `acc_id` = 1) ";
             queryString += "UNION SELECT " +

@@ -69,7 +69,6 @@ namespace AshirwadTraders
             textBoxQty.Text = "0";
             textBoxRate.Text = "0";
             textBoxTotal.Text = "0";
-            textBoxUnit.Text = "";
             textBoxExtra.Text = "";
             textBoxAmount.Text = "";
             textBoxPmtId.Text = "";
@@ -122,9 +121,9 @@ namespace AshirwadTraders
                 MessageBox.Show("Data cannot be load because " + errdataset.Message + "");
             }
             mySqlDataAdapter.Dispose();
-            queryString = "SELECT `mtrl_id` as `Id`, `mtrl_date` as `Date`, `mtrl_item` as `Item`, `mtrl_unit` as `Unit` , `mtrl_rate` as `Rate`, `mtrl_qty` as `Qty`, `mtrl_extra` as `Extra` , `mtrl_total` as `Amount`  FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' " +
+            queryString = "SELECT `mtrl_id` as `Id`, `mtrl_date` as `Date`, `mtrl_item` as `Item`, `mtrl_rate` as `Rate`, `mtrl_qty` as `Qty`, `mtrl_extra` as `Extra` , `mtrl_total` as `Amount`  FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' " +
                 "union " +
-                "SELECT '------', current_date(), 'TOTAL MATERIAL COST', '', '', '', '', SUM(`mtrl_total`) as `Amount` FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' " +
+                "SELECT '------', current_date(), 'TOTAL MATERIAL COST', '', '', '', SUM(`mtrl_total`) as `Amount` FROM `materials` WHERE `mtrl_acc_number` = '" + comboBoxAccountId.Text + "' " +
                 "ORDER BY `Date` DESC, `Id`";
             mySqlDataAdapter = new MySqlDataAdapter(queryString, mySqlConnection);
             try
@@ -143,7 +142,6 @@ namespace AshirwadTraders
                 dataGridViewMaterial.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                 dataGridViewMaterial.Columns["Date"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewMaterial.Columns["Item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dataGridViewMaterial.Columns["Unit"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewMaterial.Columns["Rate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewMaterial.Columns["Qty"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewMaterial.Columns["Extra"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -251,7 +249,6 @@ namespace AshirwadTraders
                     comboBoxItems.Text = dataGridView.SelectedRows[0].Cells["Item"].Value.ToString();
                     textBoxTotal.Text = dataGridView.SelectedRows[0].Cells["Amount"].Value.ToString();
                     textBoxExtra.Text = dataGridView.SelectedRows[0].Cells["Extra"].Value.ToString();
-                    textBoxUnit.Text = dataGridView.SelectedRows[0].Cells["Unit"].Value.ToString();
                 }
                 else if (dataGridView == dataGridViewPayment)
                 {
@@ -397,11 +394,6 @@ namespace AshirwadTraders
                 MessageBox.Show("Incorrect amount '{" + totalAmt + "}'");
                 return false;
             }
-            if (textBoxUnit.Text.Equals(""))
-            {
-                MessageBox.Show("Item unit not provided.", "Unit not provided", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
             if (textBoxExtra.Text.Equals(""))
             {
                 textBoxExtra.Text = "0";
@@ -452,7 +444,6 @@ namespace AshirwadTraders
             mySqlCommand.Parameters.AddWithValue("@var_acc_number", "Text");
             mySqlCommand.Parameters.AddWithValue("@var_date", "Text");
             mySqlCommand.Parameters.AddWithValue("@var_item", "Text");
-            mySqlCommand.Parameters.AddWithValue("@var_unit", "Text");
             mySqlCommand.Parameters.AddWithValue("@var_rate", "Text");
             mySqlCommand.Parameters.AddWithValue("@var_qty", "Text");
             mySqlCommand.Parameters.AddWithValue("@var_extra", "Text");
@@ -462,15 +453,14 @@ namespace AshirwadTraders
             mySqlCommand.Parameters.AddWithValue("@var_info", "Text");
             if (!(comboBoxItems.Text.Equals("") || comboBoxItems.Text.Equals("SELECT ITEM")))
             {
-                mySqlCommand.CommandText = "INSERT INTO `materials` (`mtrl_id`, `mtrl_acc_number`, `mtrl_date`, `mtrl_item`, `mtrl_unit`, `mtrl_rate`, `mtrl_qty`, `mtrl_total`, `mtrl_extra`)" +
-                        " VALUES (@var_id, @var_acc_number, @var_date, @var_item, @var_unit, @var_rate, @var_qty, @var_total, @var_extra) ";
+                mySqlCommand.CommandText = "INSERT INTO `materials` (`mtrl_id`, `mtrl_acc_number`, `mtrl_date`, `mtrl_item`, `mtrl_rate`, `mtrl_qty`, `mtrl_total`, `mtrl_extra`)" +
+                        " VALUES (@var_id, @var_acc_number, @var_date, @var_item, @var_rate, @var_qty, @var_total, @var_extra) ";
 
                 mySqlCommand.Prepare();
                 mySqlCommand.Parameters["@var_id"].Value = DateTime.Now.ToString("yyyyMMddHHmmss");
                 mySqlCommand.Parameters["@var_acc_number"].Value = comboBoxAccountId.Text;
                 mySqlCommand.Parameters["@var_date"].Value = dateTimePickerTransaction.Value.ToString("yyyy-MM-dd") + " 00:00:00";
                 mySqlCommand.Parameters["@var_item"].Value = comboBoxItems.Text;
-                mySqlCommand.Parameters["@var_unit"].Value = textBoxUnit.Text;
                 mySqlCommand.Parameters["@var_rate"].Value = textBoxRate.Text;
                 mySqlCommand.Parameters["@var_qty"].Value = textBoxQty.Text;
                 Double.TryParse(textBoxTotal.Text, style, culture, out totalAmt);

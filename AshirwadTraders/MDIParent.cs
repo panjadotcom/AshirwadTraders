@@ -44,11 +44,19 @@ namespace AshirwadTraders
             }
             else if (menuItem == profitLossToolStripMenuItem)
             {
-                formViewer = new ProfitLossPage();
+                formViewer = new ProfitLossPage("MATERIALS, PAYMENTS");
+            }
+            else if (menuItem == saleAllMaterialToolStripMenuItem)
+            {
+                formViewer = new ProfitLossPage("MATERIALS");
+            }
+            else if (menuItem == allPaymentToolStripMenuItem)
+            {
+                formViewer = new ProfitLossPage("PAYMENTS");
             }
             else
             {
-                MessageBox.Show("Error in Menu Items", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Error in Menu Items", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
